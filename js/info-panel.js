@@ -55,6 +55,9 @@ AFRAME.registerComponent('info-panel', {
   
       this.movieTitleEl.setAttribute('text', 'value', movieInfo.title);
       this.movieDescriptionEl.setAttribute('text', 'value', movieInfo.description);
+      if (evt.currentTarget.id === 'karigurashiButton') {
+        window.location.href = 'game.html';
+      }
     },
   
     onBackgroundClick: function (evt) {
