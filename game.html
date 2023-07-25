@@ -19,7 +19,7 @@
     <a-scene physics="gravity: -2">
         <!-- Cámara y Controles -->
         <a-entity>
-            <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 10">
+            <a-entity id="camera" camera look-controls wasd-controls position="0 2.5 10">
                 <a-text value="count: 0" position="-1 1 -4"></a-text>
                 <a-cursor intersection-spawn="Event: click; mixin: voxel"></a-cursor>
             </a-entity>
@@ -29,10 +29,10 @@
         <!-- Sonido -->
 
 
-        <a-entity environment="preset: forest; groundColor: #445; seed: 4; "></a-entity>
-
 
         <!-- Sky, Suelo, Objetos de relleno -->
+
+        <a-entity environment="preset: forest; groundColor: #445; seed: 4; "></a-entity>
         
         <a-entity environment="skyType: gradient; skyColor: #F2BE22;"></a-entity>
         
@@ -41,6 +41,9 @@
         scale="3 3 3"
         gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/little_pond__fish.glb?v=1690203856474">
         </a-entity>
+
+
+        <!-- Patos -->
 
         <a-entity
         position="-3 1.606 -3"
@@ -66,9 +69,6 @@
         scale="5 5 5"
         gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
         </a-entity>
-
-        <!-- Patos -->
-        
 
         
     </a-scene>
