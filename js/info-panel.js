@@ -25,6 +25,11 @@ AFRAME.registerComponent('info-panel', {
           description: 'It is the eighth film Miyazaki directed for Studio Ghibli, and his tenth overall. The film tells the story of Ponyo (Nara), a goldfish who escapes from the ocean and is rescued by a five-year-old human boy, Sōsuke (Doi) after she is washed ashore while trapped in a glass jar.'
         }
       };
+
+      var oculusControlsEl = document.querySelector('[oculus-touch-controls]');
+      if (oculusControlsEl) {
+        oculusControlsEl.addEventListener('triggerdown', this.onTriggerDown.bind(this));
+    }
   
       this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
       this.onBackgroundClick = this.onBackgroundClick.bind(this);
@@ -65,5 +70,13 @@ AFRAME.registerComponent('info-panel', {
       this.el.object3D.scale.set(0.001, 0.001, 0.001);
       this.el.object3D.visible = false;
       this.fadeBackgroundEl.object3D.visible = false;
-    }
+    },
+
+    onTriggerDown: function (evt) {
+      // Verifica si el botón presionado es el trigger
+      if (evt.detail.id === 1) { // 1 representa el índice del trigger en los mandos Oculus Touch
+        // Realiza la redirección a la página de juego
+        window.location.href = 'game.html';
+      }
+    },
   });
