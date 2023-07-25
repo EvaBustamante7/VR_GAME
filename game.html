@@ -16,7 +16,10 @@
 </head>
 
 <body>
-    <a-scene physics="gravity: -2">
+        <a-scene physics="gravity: -2">
+        <a-assets>
+            <audio id="mi-musica" src="assets/musica.mp3"preload="true" muted></audio>
+        </a-assets>
         <!-- Cámara y Controles -->
         <a-entity>
             <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0">
@@ -27,7 +30,7 @@
             <a-entity id="rtcontroller" oculus-touch-controls="hand: right" trigger-check raycaster="showLine: true"></a-entity>
         </a-entity>
         <!-- Sonido -->
-
+        <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume:0.05"></a-entity>
 
         <!-- Sky, Suelo, Objetos de relleno -->
         <a-entity environment="preset: forest; groundColor: #445; grid: cross; seed: 7; "></a-entity>
@@ -36,10 +39,17 @@
         <!-- Patos -->
         
 
-        
+        <div class="button">
+            <button type="button" class="btn" onclick="toggleMusica()">
+                <span id="playButton">Start</span>
+                <span id="pauseButton" style="display:none">Stop</span>
+            </button>
+        </div>
+
+       
 
     </a-scene>
-
+    
     
 </body>
 
