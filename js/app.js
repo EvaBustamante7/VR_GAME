@@ -1,4 +1,5 @@
 var count = 0; //-- used in collide-detect component
+let puntuacion;
 
 //-- add to the oculus touch controller html --
 AFRAME.registerComponent('trigger-check', {
@@ -21,8 +22,11 @@ AFRAME.registerComponent('trigger-check', {
 
 //-- add this to any element you want to remove on collision --
 //-- put class="target" to your targets
+
 AFRAME.registerComponent('collide-detect', {
   init: function () {
+    let patito=document.querySelectorAll('#patito')
+    let puntuacion=0;
     var bulletEl = this.el;
    
     var debugtxt = document.querySelector('a-text');
@@ -33,7 +37,9 @@ AFRAME.registerComponent('collide-detect', {
           
           e.detail.body.el.parentNode.removeChild(e.detail.body.el);
           count++;
-          debugtxt.setAttribute('value', 'count: ' + count);
+          
+          debugtxt.setAttribute('value', 'count: ' + count );
+          localStorage.setItem('puntuacionJugador', count)
           console.log('estoy en collide-detect   collide if')
           
         } catch (err){ }
