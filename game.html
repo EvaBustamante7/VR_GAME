@@ -19,7 +19,7 @@
     <a-scene physics="gravity: -2">
         <!-- Cámara y Controles -->
         <a-entity>
-            <a-entity id="camera" camera look-controls wasd-controls position="0 2.5 10">
+            <a-entity id="camera" camera look-controls wasd-controls position="0 3 10">
                 <a-text value="count: 0" position="-1 1 -4"></a-text>
                 <a-cursor intersection-spawn="Event: click; mixin: voxel"></a-cursor>
             </a-entity>
@@ -29,12 +29,9 @@
         <!-- Sonido -->
 
 
-
         <!-- Sky, Suelo, Objetos de relleno -->
 
-        <a-entity environment="preset: forest; groundColor: #445; seed: 4; "></a-entity>
-        
-        <a-entity environment="skyType: gradient; skyColor: #F2BE22;"></a-entity>
+        <a-entity environment="preset: forest; ground: flat;groundTexture: walkernoise; groundColor: #553e35; groundColor2: #694439; skyType: gradient; skyColor: lightblue;"></a-entity>
         
         <a-entity
         position="-3 1 -3"
