@@ -20,10 +20,10 @@
 <body>
   <a-scene physics="gravity: -2">
     <!-- Música -->
-    <a-assets>
+    <!-- <a-assets>
       <audio id="mi-musica" src="assets/musica.mp3" preload="true" muted></audio>
     </a-assets>
-    <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 5"></a-entity>
+    <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 5"></a-entity> -->
 
     <!-- Cámara y Controles -->
     <a-entity id="player">
@@ -45,7 +45,7 @@
     <!-- Sky, Suelo, Objetos de relleno -->
 
     <a-entity environment="preset: forest; ground: flat; groundTexture: walkernoise; groundColor:#553e35; groundColor2:#694439; 
-      skyType: gradient; skyColor: lightblue; dressing: trees; dressingAmount:100;"></a-entity>
+      skyType: gradient; skyColor: lightblue; dressing: trees; dressingAmount:100; shadow: true; shadowSize: 5; fog: none; "></a-entity>
 
     <a-entity position="5 1 -3" scale="3 3 3"
       gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/little_pond__fish.glb?v=1690203856474">
