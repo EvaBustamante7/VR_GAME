@@ -10,20 +10,23 @@ AFRAME.registerComponent('info-panel', {
   
       this.movieInfo = {
         karigurashiButton: {
-          title: 'The Secret World of Arrietty (2010)',
+          title: 'Duck Hunt',
           imgEl: document.querySelector('#karigurashiMovieImage'),
-          description: 'Based on the 1952 novel The Borrowers by Mary Norton, an English author of children\'s books, about a family of tiny people who live secretly in the walls and floors of a typical household, borrowing items from humans to survive.'
+          description: 'Abate todos los patos que puedas en el menor tiempo posible',
+          
         },
         kazetachinuButton: {
-          title: 'The Wind Rises (2013)',
+          title: 'The best hunters',
           imgEl: document.querySelector('#kazetachinuMovieImage'),
-          description: 'The Wind Rises is a fictionalised biographical film of Jiro Horikoshi (1903, 1982), designer of the Mitsubishi A5M fighter aircraft and its successor, the Mitsubishi A6M Zero, used by the Empire of Japan during World War II. The film is adapted from Miyazaki\'s manga of the same name, which was in turn loosely based on both the 1937 novel The Wind Has Risen by Tatsuo Hori and the life of Jiro Horikoshi.'
+          description: 'Zori    2300\nSol      3400'
+                       
         },
         ponyoButton: {
           title: 'Ponyo (2003)',
           imgEl: document.querySelector('#ponyoMovieImage'),
           description: 'It is the eighth film Miyazaki directed for Studio Ghibli, and his tenth overall. The film tells the story of Ponyo (Nara), a goldfish who escapes from the ocean and is rescued by a five-year-old human boy, Sōsuke (Doi) after she is washed ashore while trapped in a glass jar.'
         }
+        
       };
 
       var oculusControlsEl = document.querySelector('[oculus-touch-controls]');
@@ -60,23 +63,19 @@ AFRAME.registerComponent('info-panel', {
   
       this.movieTitleEl.setAttribute('text', 'value', movieInfo.title);
       this.movieDescriptionEl.setAttribute('text', 'value', movieInfo.description);
-      if (evt.currentTarget.id === 'karigurashiButton') {
-        window.location.href = 'game.html';
-      }
+      
     },
   
     onBackgroundClick: function (evt) {
-      this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
-      this.el.object3D.scale.set(0.001, 0.001, 0.001);
-      this.el.object3D.visible = false;
-      this.fadeBackgroundEl.object3D.visible = false;
-    },
 
-    onTriggerDown: function (evt) {
-      // Verifica si el botón presionado es el trigger
-      if (evt.detail.id === 1) { // 1 representa el índice del trigger en los mandos Oculus Touch
-        // Realiza la redirección a la página de juego
+      if (this.movieImageEl && this.movieImageEl.id === 'karigurashiMovieImage') {
         window.location.href = 'game.html';
+      } else {
+        this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
+        this.el.object3D.scale.set(0.001, 0.001, 0.001);
+        this.el.object3D.visible = false;
+        this.fadeBackgroundEl.object3D.visible = false;
       }
-    },
+    }
+
   });

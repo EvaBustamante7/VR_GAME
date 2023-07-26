@@ -18,17 +18,17 @@
         raycaster="objects: .raycastable">
         <a-assets>
         
-            <img id="karigurashi" src="https://cdn.aframe.io/examples/ui/karigurashi.jpg" crossorigin="anonymous" />
+            <img id="karigurashi" src="./assets/Duck_Hunt.jpg" crossorigin="anonymous" />
 
-            <img id="karigurashiPoster" src="https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg"
+            <img id="portadaDuckHunt" src="./assets/Duck_Hunt.jpg"
                 crossorigin="anonymous" />
         
-            <img id="kazetachinu" src="https://cdn.aframe.io/examples/ui/kazetachinu.jpg" crossorigin="anonymous" />
-            <img id="kazetachinuPoster" src="https://cdn.aframe.io/examples/ui/kazetachinuPoster.jpg"
+            <img id="kazetachinu" src="./assets/Duck hunt.jpg" crossorigin="anonymous" />
+            <img id="perroPato" src="./assets/Duck hunt.jpg"
                 crossorigin="anonymous" />
        
             <img id="ponyo" src="https://cdn.aframe.io/examples/ui/ponyo.jpg" crossorigin="anonymous" />
-            <img id="ponyoPoster" src="https://cdn.aframe.io/examples/ui/ponyoPoster.jpg" crossorigin="anonymous" />
+            <img id="puntuaciones" src="./assets/nick-savino-2015-duck-hunt.jpg" crossorigin="anonymous" />
        
 
             <a-mixin id="frame" geometry="primitive: plane; width: 0.5783552; height: 0.8192"
@@ -62,15 +62,15 @@
             <!-- Poster menu -->
             <a-entity id="menu" highlight>
                 <a-entity id="karigurashiButton" position="-0.8 0 0" mixin="frame" class="raycastable menu-button">
-                    <a-entity material="src: #karigurashiPoster;" mixin="poster"></a-entity>
+                    <a-entity material="src: #portadaDuckHunt;" mixin="poster"></a-entity>
                 </a-entity>
 
                 <a-entity id="kazetachinuButton" position="0 0 0" mixin="frame" class="raycastable menu-button">
-                    <a-entity material="src: #kazetachinuPoster" mixin="poster"></a-entity>
+                    <a-entity material="src: #perroPato" mixin="poster"></a-entity>
                 </a-entity>
 
                 <a-entity id="ponyoButton" position="0.8 0 0" mixin="frame" class="raycastable menu-button">
-                    <a-entity material="src: #ponyoPoster" mixin="poster"></a-entity>
+                    <a-entity material="src: #puntuaciones" mixin="poster"></a-entity>
                 </a-entity>
             </a-entity>
 
@@ -82,7 +82,7 @@
                 <a-entity id="kazetachinuMovieImage" mixin="movieImage" material="src: #kazetachinu"
                     visible="false"></a-entity>
                 <a-entity id="karigurashiMovieImage" mixin="movieImage" material="src: #karigurashi"
-                    visible="false"></a-entity>
+                    visible="false"class="raycastable menu-button"></a-entity>
                 <a-entity id="movieTitle" position="-0.68 -0.1 0"
                     text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity>
                 <a-entity id="movieDescription" position="-0.68 -0.2 0"
