@@ -1,4 +1,4 @@
-AFRAME.registerComponent('joystick-movement', {
+AFRAME.registerComponent("joystick-movement", {
     schema: {
       speed: { default: 0.1 }, // Velocidad de movimiento
     },
@@ -8,21 +8,39 @@ AFRAME.registerComponent('joystick-movement', {
       this.thumbstickPressed = false;
   
       // Añade los eventos 'thumbstickmoved' y 'thumbstickdown' al componente de oculus-touch-controls
-      var oculusControlsEl = document.querySelector('[oculus-touch-controls]');
+      var oculusControlsEl = document.querySelector("[oculus-touch-controls]");
       if (oculusControlsEl) {
-        oculusControlsEl.addEventListener('thumbstickmoved', this.onThumbstickMoved);
-        oculusControlsEl.addEventListener('thumbstickdown', () => (this.thumbstickPressed = true));
-        oculusControlsEl.addEventListener('thumbstickup', () => (this.thumbstickPressed = false));
+        oculusControlsEl.addEventListener(
+          "thumbstickmoved",
+          this.onThumbstickMoved
+        );
+        oculusControlsEl.addEventListener(
+          "thumbstickdown",
+          () => (this.thumbstickPressed = true)
+        );
+        oculusControlsEl.addEventListener(
+          "thumbstickup",
+          () => (this.thumbstickPressed = false)
+        );
       }
     },
   
     remove: function () {
       // Limpia los eventos al remover el componente
-      var oculusControlsEl = document.querySelector('[oculus-touch-controls]');
+      var oculusControlsEl = document.querySelector("[oculus-touch-controls]");
       if (oculusControlsEl) {
-        oculusControlsEl.removeEventListener('thumbstickmoved', this.onThumbstickMoved);
-        oculusControlsEl.removeEventListener('thumbstickdown', () => (this.thumbstickPressed = true));
-        oculusControlsEl.removeEventListener('thumbstickup', () => (this.thumbstickPressed = false));
+        oculusControlsEl.removeEventListener(
+          "thumbstickmoved",
+          this.onThumbstickMoved
+        );
+        oculusControlsEl.removeEventListener(
+          "thumbstickdown",
+          () => (this.thumbstickPressed = true)
+        );
+        oculusControlsEl.removeEventListener(
+          "thumbstickup",
+          () => (this.thumbstickPressed = false)
+        );
       }
     },
   
@@ -33,8 +51,10 @@ AFRAME.registerComponent('joystick-movement', {
         var y = evt.detail.y;
   
         // Obtiene la dirección de la cámara
-        var camera = document.querySelector('a-camera');
-        var cameraDirection = camera.object3D.getWorldDirection(new THREE.Vector3());
+        var camera = document.querySelector("a-camera");
+        var cameraDirection = camera.object3D.getWorldDirection(
+          new THREE.Vector3()
+        );
         var cameraRotation = Math.atan2(cameraDirection.x, cameraDirection.z);
   
         // Calcula el nuevo desplazamiento de la cámara
@@ -47,4 +67,3 @@ AFRAME.registerComponent('joystick-movement', {
       }
     },
   });
-  
