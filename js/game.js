@@ -34,6 +34,7 @@ AFRAME.registerComponent('collide-detect', {
           e.detail.body.el.parentNode.removeChild(e.detail.body.el);
           count++;
           debugtxt.setAttribute('value', 'count: ' + count);
+          localStorage.setItem('puntuacionJugador', count)
           console.log('estoy en collide-detect   collide if')
           
         } catch (err){ }
