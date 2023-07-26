@@ -20,10 +20,12 @@
   <a-scene physics="gravity: -2">
 
     <!-- Música -->
-    <!-- <a-assets>
+    <a-assets>
       <audio id="mi-musica" src="assets/musica.mp3" preload="true" muted></audio>
+      <audio id="disparo" src="assets/gun.mp3" preload="true" muted></audio>
     </a-assets>
-    <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 5"></a-entity> -->
+    <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 5"></a-entity> >
+    <a-entity sound d="src: #disparo; autoplay: true; loop:; volume: 8"></a-entity> >
 
     <!-- Cámara y Controles -->
     <a-entity id="player">
@@ -39,11 +41,9 @@
     <!-- Sonido -->
 
     <div class="button">
-      <button type="button" class="btn" onclick="toggleMusica()">
-        <span id="playButton">Start</span>
-        <span id="pauseButton" style="display:none">Stop</span>
-      </button>
+        <button onclick="toggleMusica()">Start/Stop</button>
     </div>
+    
     <!-- Sky, Suelo, Objetos de relleno -->
 
     <a-entity
