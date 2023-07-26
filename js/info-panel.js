@@ -28,6 +28,11 @@ AFRAME.registerComponent('info-panel', {
         }
         
       };
+
+      var oculusControlsEl = document.querySelector('[oculus-touch-controls]');
+      if (oculusControlsEl) {
+        oculusControlsEl.addEventListener('triggerdown', this.onTriggerDown.bind(this));
+    }
   
       this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
       this.onBackgroundClick = this.onBackgroundClick.bind(this);
@@ -62,6 +67,7 @@ AFRAME.registerComponent('info-panel', {
     },
   
     onBackgroundClick: function (evt) {
+
       if (this.movieImageEl && this.movieImageEl.id === 'karigurashiMovieImage') {
         window.location.href = 'game.html';
       } else {
@@ -71,4 +77,5 @@ AFRAME.registerComponent('info-panel', {
         this.fadeBackgroundEl.object3D.visible = false;
       }
     }
+
   });
