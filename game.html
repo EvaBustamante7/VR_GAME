@@ -19,7 +19,6 @@
 <body>
   <a-scene physics="gravity: -2">
 
-
     <!-- Música -->
     <a-assets>
       <audio id="mi-musica" src="assets/musica.mp3" preload="true" muted></audio>
@@ -38,14 +37,13 @@
       <a-entity id="rtcontroller" oculus-touch-controls="hand: right" trigger-check
         raycaster="showLine: true"></a-entity>
     </a-entity>
-    <!-- Sonido -->
 
+    <!-- Sonido -->
     <div class="button">
       <button onclick="toggleMusica()">Start/Stop</button>
     </div>
 
     <!-- Sky, Suelo, Objetos de relleno -->
-
     <a-entity
       environment="preset: forest; lightPosition: 1 5 -2; ground: flat; groundTexture: walkernoise; groundColor:#553e35; groundColor2:#694439; 
       skyType: gradient; skyColor: lightblue; dressing: trees; dressingAmount:100; shadow: true; shadowSize: 5; fog: none; "></a-entity>
@@ -79,9 +77,7 @@
       gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/desert_rocks.glb?v=1690361192798">
     </a-entity>
 
-
     <!-- Setas -->
-
     <a-entity class="target" static-body="shape: box" position="-23 -0.1 35" scale="1 1 1"
       gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub%20Evolved.glb?v=1690361227609">
     </a-entity>
@@ -94,7 +90,6 @@
 
 
     <!-- Duckies -->
-
     <a-entity class="target" dynamic-body="shape: box" position="-3 1.606 -3" scale="5 5 5"
       gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
     </a-entity>
