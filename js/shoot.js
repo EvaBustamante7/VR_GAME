@@ -10,7 +10,7 @@ const shoot = () => {
   //bullet.setAttribute("velocity", getDirection(cameraEl, 30));
   let  direction = new THREE.Vector3();
   cameraEl.object3D.getWorldDirection( direction );
-  bullet.setAttribute("velocity", direction.multiplyScalar(-10));
+  bullet.setAttribute("velocity", direction.multiplyScalar(-20));
   bullet.setAttribute("dynamic-body", {shape: 'box', mass: 1});
   bullet.setAttribute("radius", 0.2);
   bullet.setAttribute("collide-detect", null);
