@@ -10,14 +10,15 @@ AFRAME.registerComponent('info-panel', {
   
       this.movieInfo = {
         karigurashiButton: {
-          title: 'The Secret World of Arrietty (2010)',
+          title: 'Duck Hunt',
           imgEl: document.querySelector('#karigurashiMovieImage'),
-          description: 'Based on the 1952 novel The Borrowers by Mary Norton, an English author of children\'s books, about a family of tiny people who live secretly in the walls and floors of a typical household, borrowing items from humans to survive.'
+          description: 'Abate todos los patos que puedas en el menor tiempo posible'
         },
         kazetachinuButton: {
-          title: 'The Wind Rises (2013)',
+          title: 'The best hunters',
           imgEl: document.querySelector('#kazetachinuMovieImage'),
-          description: 'The Wind Rises is a fictionalised biographical film of Jiro Horikoshi (1903, 1982), designer of the Mitsubishi A5M fighter aircraft and its successor, the Mitsubishi A6M Zero, used by the Empire of Japan during World War II. The film is adapted from Miyazaki\'s manga of the same name, which was in turn loosely based on both the 1937 novel The Wind Has Risen by Tatsuo Hori and the life of Jiro Horikoshi.'
+          description: 'Zori    2300\nSol      3400'
+                       
         },
         ponyoButton: {
           title: 'Ponyo (2003)',
