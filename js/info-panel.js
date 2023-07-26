@@ -12,7 +12,8 @@ AFRAME.registerComponent('info-panel', {
         karigurashiButton: {
           title: 'Duck Hunt',
           imgEl: document.querySelector('#karigurashiMovieImage'),
-          description: 'Abate todos los patos que puedas en el menor tiempo posible'
+          description: 'Abate todos los patos que puedas en el menor tiempo posible',
+          
         },
         kazetachinuButton: {
           title: 'The best hunters',
@@ -25,6 +26,7 @@ AFRAME.registerComponent('info-panel', {
           imgEl: document.querySelector('#ponyoMovieImage'),
           description: 'It is the eighth film Miyazaki directed for Studio Ghibli, and his tenth overall. The film tells the story of Ponyo (Nara), a goldfish who escapes from the ocean and is rescued by a five-year-old human boy, Sōsuke (Doi) after she is washed ashore while trapped in a glass jar.'
         }
+        
       };
   
       this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
@@ -56,15 +58,17 @@ AFRAME.registerComponent('info-panel', {
   
       this.movieTitleEl.setAttribute('text', 'value', movieInfo.title);
       this.movieDescriptionEl.setAttribute('text', 'value', movieInfo.description);
-      if (evt.currentTarget.id === 'karigurashiButton') {
-        window.location.href = 'game.html';
-      }
+      
     },
   
     onBackgroundClick: function (evt) {
-      this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
-      this.el.object3D.scale.set(0.001, 0.001, 0.001);
-      this.el.object3D.visible = false;
-      this.fadeBackgroundEl.object3D.visible = false;
+      if (this.movieImageEl && this.movieImageEl.id === 'karigurashiMovieImage') {
+        window.location.href = 'game.html';
+      } else {
+        this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
+        this.el.object3D.scale.set(0.001, 0.001, 0.001);
+        this.el.object3D.visible = false;
+        this.fadeBackgroundEl.object3D.visible = false;
+      }
     }
   });
