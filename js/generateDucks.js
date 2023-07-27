@@ -77,6 +77,7 @@ const duckProperties = [
 duckProperties.forEach(properties => {
   const entity = document.createElement("a-entity");
   entity.classList.add("target");
+  entity.setAttribute("id", "bueno"); 
   entity.setAttribute("dynamic-body", "shape: box");
   entity.setAttribute("position", properties.position);
   entity.setAttribute("rotation", properties.rotation);
