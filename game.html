@@ -38,14 +38,13 @@
       <a-entity id="rtcontroller" oculus-touch-controls="hand: right" trigger-check
         raycaster="showLine: true"></a-entity>
     </a-entity>
-    <!-- Sonido -->
 
+    <!-- Sonido -->
     <div class="button">
       <button onclick="toggleMusica()">Start/Stop</button>
     </div>
 
     <!-- Sky, Suelo, Objetos de relleno -->
-
     <a-entity
       environment="preset: forest; lightPosition: 1 5 -2; ground: flat; groundTexture: walkernoise; groundColor:#553e35; groundColor2:#694439; 
       skyType: gradient; skyColor: lightblue; dressing: trees; dressingAmount:100; shadow: true; shadowSize: 5; fog: none; "></a-entity>
@@ -81,7 +80,6 @@
 
 
     <!-- Setas -->
-
     <a-entity class="target" static-body="shape: box" position="-23 -0.1 35" scale="1 1 1"
       gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub%20Evolved.glb?v=1690361227609">
     </a-entity>
@@ -94,20 +92,17 @@
 
 
     <!-- Duckies -->
-
     <a-entity class="target" dynamic-body="shape: box" position="11.825 17.812 8.163" scale="10 5 10" rotation="0 90 0"
       gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418">
     </a-entity>
-
     <a-entity class="target" dynamic-body="shape: box" position="-9.497 -5.177 -5.419" scale="10 5 10" rotation="0 90 0"
       gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418">
     </a-entity>
-
     <a-entity class="target" dynamic-body="shape: box" position="-8.999 -5.248 -3.786" scale="10 5 10" rotation="0 90 0"
       gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418">
     </a-entity>
 
-    
+
   </a-scene>
   <script src="./js/generateDucks.js"></script>
   <script src="./js/shoot.js"></script>
