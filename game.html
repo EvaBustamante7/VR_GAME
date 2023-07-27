@@ -19,22 +19,23 @@
 <body>
   <a-scene physics="gravity: -2">
 
-
     <!-- Música -->
     <a-assets>
       <audio id="mi-musica" src="assets/musica.mp3" preload="true" muted></audio>
       <audio id="disparo" src="assets/gun.mp3" preload="true" muted></audio>
     </a-assets>
-    <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 5"></a-entity> >
-    <a-entity sound d="src: #disparo; autoplay: true; loop:; volume: 8"></a-entity> >
+    <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 7"></a-entity>
+    <a-entity sound d="src: #disparo; autoplay: true; volume: 0.5"></a-entity>
 
     <!-- Cámara y Controles -->
-    <a-entity>
-      <a-entity id="camera" camera look-controls wasd-controls position="0 10 20">
-        <a-text value="count: 0" position="-1 1 -4"></a-text>
+
+    <a-entity joystick-movement>
+      <a-entity id="camera" camera look-controls wasd-controls position="3 8 27">
+        <a-text value="count: 0" position="-3 2.5 -4" color="black"></a-text>
+
         <a-cursor intersection-spawn="Event: click; mixin: voxel"></a-cursor>
       </a-entity>
-      <a-entity oculus-touch-controls="hand: left" trigger-check></a-entity>
+      <a-entity oculus-touch-controls="hand: left" trigger-check raycaster="showLine: true"></a-entity>
       <a-entity id="rtcontroller" oculus-touch-controls="hand: right" trigger-check
         raycaster="showLine: true"></a-entity>
     </a-entity>
@@ -78,7 +79,6 @@
       gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/desert_rocks.glb?v=1690361192798">
     </a-entity>
 
-
     <!-- Setas -->
     <a-entity class="target" static-body="shape: box" position="-23 -0.1 35" scale="1 1 1"
       gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub%20Evolved.glb?v=1690361227609">
@@ -92,6 +92,7 @@
 
 
     <!-- Duckies -->
+
     <a-entity class="target" dynamic-body="shape: box" position="11.825 17.812 8.163" scale="10 5 10" rotation="0 90 0"
       gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418">
     </a-entity>
@@ -99,6 +100,68 @@
       gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418">
     </a-entity>
     <a-entity class="target" dynamic-body="shape: box" position="-8.999 -5.248 -3.786" scale="10 5 10" rotation="0 90 0"
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="-3 1.606 -3" scale="5 5 5"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="-2.141 1.606 1.640" scale="5 5 5"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="3.271 1.549 -5.248" scale="5 5 5"
+      rotation="0 0.001 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="0.988 1.549 1.761" scale="5 5 5"
+      rotation="0 -2.610 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="-6.650 1.549 5.424" scale="5 5 5"
+      rotation="0 4.068 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="1.668 1.549 6.332" scale="5 5 5"
+      rotation="0 3.225 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="3.314 1.549 2.306" scale="5 5 5"
+      rotation="0 3.770 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="-8.330 1.549 -7.223" scale="5 5 5"
+      rotation="0 -7.427 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="1.182 1.549 -11.956" scale="5 5 5"
+      rotation="0 12.857 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="0.280 1.549 8.142" scale="5 5 5"
+      rotation="0 -3.445 0"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="-2.141 1.606 1.640" scale="5 5 5"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="0.422 1.606 -3" scale="5 5 5"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="bueno" class="target" dynamic-body="shape: box" position="-0.111 1.606 0.524" scale="5 5 5"
+      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620">
+    </a-entity>
+
+    <a-entity id="malo" class="target" dynamic-body="shape: box" position="-4.463 2.150 11.692" scale="10 5 10"
+      rotation="0 90 0"
       gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418">
     </a-entity>
 

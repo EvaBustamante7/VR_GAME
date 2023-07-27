@@ -1,5 +1,5 @@
 var sceneEl = document.querySelector("a-scene");
-var cameraEl = document.getElementById("camera");
+var cameraEl = document.querySelector("#camera");
 var controllerEl = document.getElementById("rtcontroller");
 //document.getElementById('patito').setAttribute('factorpuntuacion',10)
 //-- used by keyboard shoot --
@@ -8,12 +8,30 @@ const shoot = () => {
   let pos = cameraEl.getAttribute("position");
   bullet.setAttribute("position", pos);
   //bullet.setAttribute("velocity", getDirection(cameraEl, 30));
-  let  direction = new THREE.Vector3();
-  cameraEl.object3D.getWorldDirection( direction );
+  let direction = new THREE.Vector3();
+  cameraEl.object3D.getWorldDirection(direction);
   bullet.setAttribute("velocity", direction.multiplyScalar(-20));
-  bullet.setAttribute("dynamic-body", {shape: 'box', mass: 1});
+  bullet.setAttribute("dynamic-body", { shape: "box", mass: 1 });
   bullet.setAttribute("radius", 0.2);
   bullet.setAttribute("collide-detect", null);
+
+  // Obtiene la entidad de sonido del área de activos
+  const soundEntity = document.querySelector("#disparo");
+
+  // Agrega el atributo 'sound' a la entidad de la bala
+  bullet.setAttribute("sound", {
+    src: soundEntity.getAttribute("src"),
+    autoplay: true,
+  });
+
+  // Revisa colisiones de la bala
+  bullet.addEventListener("collide", function (event) {
+    const target = event.detail.body.el;
+    if (target.id === "patito") {
+      target.parentNode.removeChild(target);
+    }
+    sceneEl.removeChild(bullet);
+  });
 
   sceneEl.appendChild(bullet);
 };
@@ -29,20 +47,36 @@ document.onkeydown = (event) => {
 //-- oculus touch controller shoot --
 const controllershoot = () => {
   const bullet = document.createElement("a-sphere");
-  //let pos = cameraEl.getAttribute("position");
+  const controllerPosition = controllerEl.getAttribute("position");
+  const controllerDirection = new THREE.Vector3();
+  controllerEl.object3D.getWorldDirection(controllerDirection);
 
-  var position = new THREE.Vector3();
-  controllerEl.object3D.getWorldPosition(position);
-  
-  
-  bullet.setAttribute("position", position);
-  //bullet.setAttribute("velocity", getDirection(controllerEl, 30));
-  var direction = new THREE.Vector3();
-  controllerEl.object3D.getWorldDirection( direction );
-  bullet.setAttribute("velocity", direction.multiplyScalar(-20));
-  bullet.setAttribute("dynamic-body", {shape: 'box', mass: 1});
+  const bulletStartPosition = new THREE.Vector3().copy(controllerPosition);
+  const bulletVelocity = controllerDirection.multiplyScalar(-20);
+
+  bullet.setAttribute("position", bulletStartPosition);
+  bullet.setAttribute("velocity", bulletVelocity);
   bullet.setAttribute("radius", 0.2);
+  bullet.setAttribute("dynamic-body", { shape: "box", mass: 1 });
   bullet.setAttribute("collide-detect", null);
-  
+
+  // Obtiene la entidad de sonido del área de activos
+  const soundEntity = document.querySelector("#disparo");
+
+  // Agrega el atributo 'sound' a la entidad de la bala
+  bullet.setAttribute("sound", {
+    src: soundEntity.getAttribute("src"),
+    autoplay: true,
+  });
+
+  // Revisa colisiones de la bala
+  bullet.addEventListener("collide", function (event) {
+    const target = event.detail.body.el;
+    if (target.id === "patito") {
+      target.parentNode.removeChild(target);
+    }
+    sceneEl.removeChild(bullet);
+  });
+
   sceneEl.appendChild(bullet);
 };
