@@ -15,6 +15,21 @@ const shoot = () => {
   bullet.setAttribute("radius", 0.2);
   bullet.setAttribute("collide-detect", null);
 
+  // Obtiene la entidad de sonido del área de activos
+  const soundEntity = document.querySelector("#disparo");
+
+  // Agrega el atributo 'sound' a la entidad de la bala
+  bullet.setAttribute("sound", {src: soundEntity.getAttribute("src"), autoplay: true});
+
+  // Revisa colisiones de la bala
+  bullet.addEventListener("collide", function(event) {
+    const target = event.detail.body.el;
+    if (target.id === "patito") {
+      target.parentNode.removeChild(target);
+    }
+    sceneEl.removeChild(bullet);
+  });
+
   sceneEl.appendChild(bullet);
 };
 
@@ -31,18 +46,8 @@ const controllershoot = () => {
   const bullet = document.createElement("a-sphere");
   //let pos = cameraEl.getAttribute("position");
 
-  var position = new THREE.Vector3();
-  controllerEl.object3D.getWorldPosition(position);
   
   
-  bullet.setAttribute("position", position);
-  //bullet.setAttribute("velocity", getDirection(controllerEl, 30));
-  var direction = new THREE.Vector3();
-  controllerEl.object3D.getWorldDirection( direction );
-  bullet.setAttribute("velocity", direction.multiplyScalar(-20));
-  bullet.setAttribute("dynamic-body", {shape: 'box', mass: 1});
-  bullet.setAttribute("radius", 0.2);
-  bullet.setAttribute("collide-detect", null);
   
-  sceneEl.appendChild(bullet);
+  
 };
