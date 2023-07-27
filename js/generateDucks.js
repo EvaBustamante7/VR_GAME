@@ -1,29 +1,87 @@
-window.addEventListener('load', initScene)
-let puntuacion;
-let username="pepe";
- const meteors = [
-  { x: 0, y: 0, z: -30 },
-  { x: 0, y: 0, z: 30 },
-  { x: 30, y: 0, z: 0 },
-  { x: -30, y: 0, z: 0 },
-  { x: 20, y: 0, z: 20 },
-  { x: 20, y: 0, z: -20 },
-  { x: -20, y: 0, z: -20 },
-  { x: -20, y: 0, z: 20 }
-]
-let score = 0;
- function initScene() {
-  let orbits = document.querySelectorAll('.orbit')
-   orbits.forEach(orbit => {
-    meteors.forEach(pos => {
-      let meteor = document.createElement('a-entity')
-      meteor.setAttribute('geometry', { primitive: 'sphere', radius: Math.random() * 3 + 0.5 })
-      meteor.setAttribute('material', { shader: 'flat', src: '#meteor' })
-      meteor.setAttribute('class', 'meteor')
-      meteor.setAttribute('factorpuntuacion', 10)
-      meteor.object3D.position.set(pos.x, pos.y, pos.z)
-      meteor.setAttribute('shootable', '')
-      orbit.appendChild(meteor)
-    })
-  })
-}
+const duckProperties = [
+  { position: "-3 1.606 -3", rotation: "0 0 0" },
+  { position: "-2.141 1.549 1.640", rotation: "0 0 0" },
+  { position: "3.271 1.549 -5.248", rotation: "0 0.001 0" },
+  { position: "3.314 1.549 2.306", rotation: "0 3.770 0" },
+  { position: "1.668 1.549 6.332", rotation: "0 3.225 0" },
+  { position: "3.271 1.549 -5.248", rotation: "0 0.001 0" },
+  { position: "-6.650 1.549 5.424", rotation: "0 4.068 0" },
+  { position: "0.988 1.549 1.761", rotation: "0 -2.610 0" },
+  { position: "2.8 1.549 11.440", rotation: "0 -18.684 0" },
+  { position: "-4.080 1.549 13.372", rotation: "0 5.267 0" },
+  { position: "-8.705 1.549 8.780", rotation: "0 8.774 0" },
+  { position: "0.280 1.549 8.142", rotation: "0 -3.445 0" },
+  { position: "1.182 1.549 11.956", rotation: "0 12.857 0" },
+  { position: "9.717 1.549 14.118", rotation: "0 0 0" },
+  { position: "11.648 1.549 8.228", rotation: "0 0 0" },
+  { position: "4.588 1.549 1.285", rotation: "0 0.001 0" },
+  { position: "10.727 1.549 7.098", rotation: "0 3.770 0" },
+  { position: "13.545 1.549 11.976", rotation: "0 3.225 0" },
+  { position: "17.985 1.549 17.05", rotation: "0 0.001 0" },
+  { position: "15.999 1.549 3.731", rotation: "0 4.068 0" },
+  { position: "3.012 1.549 19.761", rotation: "0 -2.610 0" },
+  { position: "8.187 1.549 11.397", rotation: "0 -18.684 0" },
+  { position: "18.771 1.549 4.579", rotation: "0 5.267 0" },
+  { position: "4.989 1.549 14.918", rotation: "0 8.774 0" },
+  { position: "11.296 1.549 1.7", rotation: "0 -3.445 0" },
+  { position: "9.486 1.549 16.326", rotation: "0 12.857 0" },
+  { position: "-7.354 1.549 -3.651", rotation: "0 0.001 0" },
+  { position: "-7.962 1.549 0.352", rotation: "0 3.770 0" },
+  { position: "-2.893 1.549 0.169", rotation: "0 3.225 0" },
+  { position: "-1.218 1.549 -9.309", rotation: "0 0.001 0" },
+  { position: "-1.218 1.549 -9.309", rotation: "0 4.068 0" },
+  { position: "-4.911 1.549 0.666", rotation: "0 -2.610 0" },
+  { position: "-7.415 1.549 -3.601", rotation: "0 -18.684 0" },
+  { position: "-5.064 1.549 1.261", rotation: "0 5.267 0" },
+  { position: "-9.495 1.549 -0.106", rotation: "0 8.774 0" },
+  { position: "-9.497 1.549 -5.419", rotation: "0 -3.445 0" },
+  { position: "-2.455 1.549 -2.195", rotation: "0 12.857 0" },
+  { position: "-1.141 1.549 1.640", rotation: "0 0 0" },
+  { position: "5.271 1.549 -5.248", rotation: "0 0.001 0" },
+  { position: "6.314 1.549 2.306", rotation: "0 3.770 0" },
+  { position: "9.668 1.549 6.332", rotation: "0 3.225 0" },
+  { position: "4.271 1.549 -5.248", rotation: "0 0.001 0" },
+  { position: "-2.650 1.549 5.424", rotation: "0 4.068 0" },
+  { position: "1.988 1.549 1.761", rotation: "0 -2.610 0" },
+  { position: "3.8 1.549 11.440", rotation: "0 -18.684 0" },
+  { position: "-3.080 1.549 13.372", rotation: "0 5.267 0" },
+  { position: "-7.705 1.549 8.780", rotation: "0 8.774 0" },
+  { position: "1.280 1.549 8.142", rotation: "0 -3.445 0" },
+  { position: "8.182 1.549 11.956", rotation: "0 12.857 0" },
+  { position: "5.717 1.549 14.118", rotation: "0 0 0" },
+  { position: "13.648 1.549 8.228", rotation: "0 0 0" },
+  { position: "7.588 1.549 1.285", rotation: "0 0.001 0" },
+  { position: "16.727 1.549 7.098", rotation: "0 3.770 0" },
+  { position: "17.545 1.549 11.976", rotation: "0 3.225 0" },
+  { position: "13.985 1.549 17.05", rotation: "0 0.001 0" },
+  { position: "14.999 1.549 3.731", rotation: "0 4.068 0" },
+  { position: "6.012 1.549 19.761", rotation: "0 -2.610 0" },
+  { position: "7.187 1.549 11.397", rotation: "0 -18.684 0" },
+  { position: "17.771 1.549 4.579", rotation: "0 5.267 0" },
+  { position: "9.989 1.549 14.918", rotation: "0 8.774 0" },
+  { position: "-5.296 1.549 1.7", rotation: "0 -3.445 0" },
+  { position: "-3.486 1.549 16.326", rotation: "0 12.857 0" },
+  { position: "-8.354 1.549 -3.651", rotation: "0 0.001 0" },
+  { position: "-7.962 1.549 0.352", rotation: "0 3.770 0" },
+  { position: "-3.893 1.549 0.169", rotation: "0 3.225 0" },
+  { position: "-2.218 1.549 -9.309", rotation: "0 0.001 0" },
+  { position: "1.218 1.549-9.309", rotation: "0 4.068 0" },
+  { position: "4.911 1.549 0.666", rotation: "0 -2.610 0" },
+  { position: "-6.415 1.549 -3.601", rotation: "0 -18.684 0" },
+  { position: "-7.064 1.549 1.261", rotation: "0 5.267 0" },
+  { position: "-10.495 1.549 -0.106", rotation: "0 8.774 0" },
+  { position: "-11.497 1.549 -5.419", rotation: "0 -3.445 0" },
+  { position: "-3.455 1.549 -2.195", rotation: "0 12.857 0" },
+];
+
+duckProperties.forEach(properties => {
+  const entity = document.createElement("a-entity");
+  entity.classList.add("target");
+  entity.setAttribute("id", "bueno"); 
+  entity.setAttribute("dynamic-body", "shape: box");
+  entity.setAttribute("position", properties.position);
+  entity.setAttribute("rotation", properties.rotation);
+  entity.setAttribute("scale", "5 5 5");
+  entity.setAttribute("gltf-model", "https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/free_rubber_duck_3d_model.glb?v=1690194354620");
+  document.querySelector("a-scene").appendChild(entity);
+});
