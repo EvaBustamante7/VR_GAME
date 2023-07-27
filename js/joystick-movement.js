@@ -1,4 +1,4 @@
-AFRAME.registerComponent("joystick-movement", {
+AFRAME.registerComponent('joystick-movement', {
     schema: {
       speed: { default: 0.1 }, // Velocidad de movimiento
     },
@@ -51,7 +51,7 @@ AFRAME.registerComponent("joystick-movement", {
         var y = evt.detail.y;
   
         // Obtiene la dirección de la cámara
-        var camera = document.querySelector("a-camera");
+        var camera = document.getElementById("camera");
         var cameraDirection = camera.object3D.getWorldDirection(
           new THREE.Vector3()
         );
