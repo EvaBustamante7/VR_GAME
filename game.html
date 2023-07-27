@@ -23,9 +23,13 @@
     <a-assets>
       <audio id="mi-musica" src="assets/musica.mp3" preload="true" muted></audio>
       <audio id="disparo" src="assets/gun.mp3" preload="true" muted></audio>
+      <a-asset-item id="spline" src="https://cdn.glitch.global/8168b125-3618-4f49-83bb-527667ac662f/mushrooms_copy.gltf?v=1690468665829"></a-asset-item>
+
     </a-assets>
+    
     <a-entity sound="src: #mi-musica; autoplay: true; loop:true; volume: 7"></a-entity>
     <a-entity sound d="src: #disparo; autoplay: true; volume: 0.5"></a-entity>
+    <a-entity spline="src: #spline"></a-entity>
 
     <!-- Cámara y Controles -->
 
@@ -107,6 +111,18 @@
         gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
       </a-entity>
     </a-entity>
+    
+    <!-- Spline -->
+    
+
+    <a-assets>
+      <a-asset-item id="spline" src="https://cdn.glitch.global/8168b125-3618-4f49-83bb-527667ac662f/mushrooms_copy.gltf?v=1690468665829"></a-asset-item>
+    </a-assets>
+    
+    <a-entity gltf-model="#spline" position="22.505 6.855 10.137"></a-entity>
+    
+
+    
 
   </a-scene>
   <script src="./js/generateDucks.js"></script>
