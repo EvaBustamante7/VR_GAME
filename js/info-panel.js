@@ -12,21 +12,20 @@ AFRAME.registerComponent('info-panel', {
       karigurashiButton: {
         title: 'Duck Hunt',
         imgEl: document.querySelector('#karigurashiMovieImage'),
-        description: 'Abate todos los patos que puedas en el menor tiempo posible',
-        
+        description: 'Duck Hunt , consigue la maxima puntuacion abatiendo todos los patos que puedas para ser el mejor cazador del lago.  El cazador  se encontrara con muchos desafios. Los patos de diferentes colores avanzan por el lago, deberas hundirlos para conseguir la maxima puntuacion. No debes olvidar que te esperan sorpresas escondidas entre las setas, eliminalas para obtener puntos extras.\n GOOD HUNT'
       },
       kazetachinuButton: {
-        title: 'The best hunters',
+        title: 'Save Games',
         imgEl: document.querySelector('#kazetachinuMovieImage'),
-        description: 'Zori    2300\nSol      3400'
-                     
+        description: 'Zori    2300\n Sol      3400\n Franci     3400\nJuanan      3400\n Eva      3400',
+
       },
       ponyoButton: {
-        title: 'Ponyo (2003)',
+        title: 'Top Hunters',
         imgEl: document.querySelector('#ponyoMovieImage'),
-        description: 'It is the eighth film Miyazaki directed for Studio Ghibli, and his tenth overall. The film tells the story of Ponyo (Nara), a goldfish who escapes from the ocean and is rescued by a five-year-old human boy, Sōsuke (Doi) after she is washed ashore while trapped in a glass jar.'
+        description: 'Franci    340.000\n Sol      50000',
       }
-      
+
     };
 
     this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
@@ -58,7 +57,7 @@ AFRAME.registerComponent('info-panel', {
 
     this.movieTitleEl.setAttribute('text', 'value', movieInfo.title);
     this.movieDescriptionEl.setAttribute('text', 'value', movieInfo.description);
-    
+
   },
 
   onBackgroundClick: function (evt) {
