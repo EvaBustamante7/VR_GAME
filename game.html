@@ -29,14 +29,14 @@
 
     <!-- Cámara y Controles -->
 
-    <a-entity joystick-movement>
+    <a-entity>
       <a-entity id="camera" camera look-controls wasd-controls position="3 8 27">
         <a-text value="count: 0" position="-3 2.5 -4" color="black"></a-text>
-
         <a-cursor intersection-spawn="Event: click; mixin: voxel"></a-cursor>
       </a-entity>
-      <a-entity oculus-touch-controls="hand: left" trigger-check raycaster="showLine: true"></a-entity>
-      <a-entity id="rtcontroller" oculus-touch-controls="hand: right" trigger-check
+      <a-entity oculus-touch-controls="hand: left" trigger-check thumbstick-logging
+        raycaster="showLine: true"></a-entity>
+      <a-entity id="rtcontroller" oculus-touch-controls="hand: right" trigger-check thumbstick-logging
         raycaster="showLine: true"></a-entity>
     </a-entity>
 
@@ -46,63 +46,67 @@
     </div>
 
     <!-- Sky, Suelo, Objetos de relleno -->
-    <a-entity
-      environment="preset: forest; lightPosition: 1 5 -2; ground: flat; groundTexture: walkernoise; groundColor:#553e35; groundColor2:#694439; 
+    <a-entity position="0 -3 0">
+      <a-entity
+        environment="preset: forest; lightPosition: 1 5 -2; ground: flat; groundTexture: walkernoise; groundColor:#553e35; groundColor2:#694439; 
       skyType: gradient; skyColor: lightblue; dressing: trees; dressingAmount:100; shadow: true; shadowSize: 5; fog: none; "></a-entity>
 
-    <a-entity position="5 1 -3" scale="3 3 3"
-      gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/little_pond__fish.glb?v=1690203856474">
-    </a-entity>
+      <a-entity position="5 1 -3" scale="3 3 3"
+        gltf-model="https://cdn.glitch.global/37023834-35df-4743-a92b-2913cca3bdc9/little_pond__fish.glb?v=1690203856474">
+      </a-entity>
 
-    <a-entity id="ground" geometry="primitive: box; width: 100; depth: 100; height: 0.1" static-body="shape: box"
-      position="0 0.4 0" material="opacity: 0; transparent: true"
-      animation__position="property: position; to: 5 0.85 10; dur: 3000; easing: linear; loop: true; dir: alternate"
-      animation__rotation="property: rotation; from: 0 50 0; to: 3 50 0; dur: 3000; loop: true">
-    </a-entity>
+      <a-entity id="ground" geometry="primitive: box; width: 100; depth: 100; height: 0.1" static-body="shape: box"
+        position="0 0.4 0" material="opacity: 0; transparent: true"
+        animation__position="property: position; to: 5 0.85 10; dur: 3000; easing: linear; loop: true; dir: alternate"
+        animation__rotation="property: rotation; from: 0 50 0; to: 3 50 0; dur: 3000; loop: true">
+      </a-entity>
 
-    <a-entity position="-14 5 38" scale="7 7 7"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/cabin_fever_-_tiny_cabin_challenge.glb?v=1690361175698">
-    </a-entity>
-    <a-entity position="-1.238 0.595 40" scale="0.02 0.015 0.015"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Camp%20fire.glb?v=1690361176536">
-    </a-entity>
-    <a-entity position="-6.230 -0.042 38.235" scale="0.015 0.015 0.015"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/cartoon_fallen_tree.glb?v=1690361182719">
-    </a-entity>
-    <a-entity position="16 -0.308 35" scale="7 7 7"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/cartoon_tree.glb?v=1690361188164">
-    </a-entity>
-    <a-entity position="37.309 -0.308 31.890" scale="4 4 4"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/detailed_low_poly_rock.glb?v=1690361200981">
-    </a-entity>
-    <a-entity position="-29.098 2.381 -9.804" scale="4 4 4"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/desert_rocks.glb?v=1690361192798">
-    </a-entity>
+      <a-entity position="-14 5 38" scale="7 7 7"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/cabin_fever_-_tiny_cabin_challenge.glb?v=1690361175698">
+      </a-entity>
+      <a-entity position="-1.238 0.595 40" scale="0.02 0.015 0.015"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Camp%20fire.glb?v=1690361176536">
+      </a-entity>
+      <a-entity position="-6.230 -0.042 38.235" scale="0.015 0.015 0.015"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/cartoon_fallen_tree.glb?v=1690361182719">
+      </a-entity>
+      <a-entity position="16 -0.308 35" scale="7 7 7"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/cartoon_tree.glb?v=1690361188164">
+      </a-entity>
+      <a-entity position="37.309 -0.308 31.890" scale="4 4 4"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/detailed_low_poly_rock.glb?v=1690361200981">
+      </a-entity>
+      <a-entity position="-29.098 2.381 -9.804" scale="4 4 4"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/desert_rocks.glb?v=1690361192798">
+      </a-entity>
 
-    <!-- Setas -->
-    <a-entity class="target" static-body="shape: box" position="-23 -0.1 35" scale="1 1 1"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub%20Evolved.glb?v=1690361227609">
-    </a-entity>
-    <a-entity class="target" static-body="shape: box" position="34.979 0.854 4.094" scale="1 1 1"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub.glb?v=1690361249642">
-    </a-entity>
-    <a-entity class="target" static-body="shape: box" position="-25.482 0.614 -27.580" scale="1 1 1"
-      gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushroom%20King.glb?v=1690361255087">
-    </a-entity>
+      <!-- Setas -->
+      <a-entity class="target" static-body="shape: box" position="-23 -0.1 35" scale="1 1 1"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub%20Evolved.glb?v=1690361227609">
+      </a-entity>
+      <a-entity class="target" static-body="shape: box" position="34.979 0.854 4.094" scale="1 1 1"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushnub.glb?v=1690361249642">
+      </a-entity>
+      <a-entity class="target" static-body="shape: box" position="-25.482 0.614 -27.580" scale="1 1 1"
+        gltf-model="https://cdn.glitch.global/46a6fac2-a439-4dea-8052-3a68e9275fc4/Mushroom%20King.glb?v=1690361255087">
+      </a-entity>
 
 
-    <!-- Duckies -->
+      <!-- Duckies -->
 
-    <a-entity id="malo" class="target" dynamic-body="shape: box" position="11.825 17.812 8.163" scale="10 5 10" rotation="0 90 0"
-      gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
+      <a-entity id="malo" class="target" dynamic-body="shape: box" position="11.825 17.812 8.163" scale="10 5 10"
+        rotation="0 90 0"
+        gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
+      </a-entity>
+      <a-entity id="malo" class="target" dynamic-body="shape: box" position="-9.497 -5.177 -5.419" scale="10 5 10"
+        rotation="0 90 0"
+        gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
+      </a-entity>
+      <a-entity  class="target" dynamic-body="shape: box" position="-8.999 -5.248 -3.786" scale="10 5 10"
+        rotation="0 90 0"
+        gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
+      </a-entity>
     </a-entity>
-    <a-entity id="malo" class="target" dynamic-body="shape: box" position="-9.497 -5.177 -5.419" scale="10 5 10" rotation="0 90 0"
-      gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
-    </a-entity>
-    <a-entity id="malo" class="target" dynamic-body="shape: box" position="-8.999 -5.248 -3.786" scale="10 5 10" rotation="0 90 0"
-      gltf-model="https://cdn.glitch.global/e99c7075-76ba-4c3f-87cb-f9e06f9e2854/cranky_duck.glb?v=1690303542418%22%3E">
-    </a-entity>
-  
 
   </a-scene>
   <script src="./js/generateDucks.js"></script>
